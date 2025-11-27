@@ -1,4 +1,5 @@
-<dl class='metadata-block'>
+<!DOCTYPE html>
+<dl class='metadata-block w-100'>
   {% for item in include.meta %}
     {% if item.value contains 'page.' %}
       {% assign key = item.value | remove: 'page.' %}
@@ -7,9 +8,7 @@
       {% assign value = item.value %}
     {% endif %}
 
-    {% comment %}
-    Only display non-empty values
-    {% endcomment %}
+<!-- Only display non-empty values -->
     {% if value | strip != '' %}
       {% if item.type == 'link' %}
         {% if key == 'manifest' %}
