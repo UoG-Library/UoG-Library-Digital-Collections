@@ -12,7 +12,7 @@ permalink: /exhibits/
 
 
 
-{% include gallery.html collection='minicomp' field='object_type' value='exhibit' facet_by='location' num_column=6 %}
+{% include gallery.html collection='UoG-Library-Digital-Collectionsomp' field='object_type' value='exhibit' facet_by='location' num_column=6 %}
 
 
 

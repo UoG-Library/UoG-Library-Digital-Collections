@@ -14,7 +14,7 @@ layout: home
 
 
 
-{% include parallax_image.html collection='minicomp' pid='gy_016' y='100%'%}
+{% include parallax_image.html collection='UoG-Library-Digital-Collections' pid='gy_016' y='100%'%}
 
 
 

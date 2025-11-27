@@ -7,4 +7,4 @@ publish_date: 2025/11/27
 permalink: /law/
 --- 
 
-{% include gallery.html collection='minicomp' field='location' value='RSD' facet_by='label' num_column=4 %}
+{% include gallery.html collection='UoG-Library-Digital-Collectionsomp' field='location' value='RSD' facet_by='label' num_column=4 %}
