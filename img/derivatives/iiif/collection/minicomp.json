@@ -3,9 +3,9 @@ layout: none
 ---
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/collection/minicomp.json",
+  "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/collection/UoG-Library-Digital-Collections.json",
   "@type": "sc:Collection",
-  "label": "minicomp",
+  "label": "UoG-Library-Digital-Collections",
   "manifests": [
     {
       "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/carifesta_001/manifest.json",

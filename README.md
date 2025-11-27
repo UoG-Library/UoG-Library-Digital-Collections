@@ -1,19 +1,19 @@
 # Facets
 
-*Facets* is a theme for [Wax sites](https://minicomp.github.io\/wax/) that allows users to browse through a collection using facets, or filters. When we are browsing through a collection of cultural artifacts, we often want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allows you to do just that using filters you select. In Facets this can be achieved using drop-down menus where you can select the categories you want to browse by.
+*Facets* is a theme for [Wax sites](https://UoG-Library-Digital-Collections.github.io\/wax/) that allows users to browse through a collection using facets, or filters. When we are browsing through a collection of cultural artifacts, we often want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allows you to do just that using filters you select. In Facets this can be achieved using drop-down menus where you can select the categories you want to browse by.
 
-Visit [the demo site](https://minicomp.github.io/wax-facets/) to see *Facets* in action
+Visit [the demo site](https://UoG-Library-Digital-Collections.github.io/wax-facets/) to see *Facets* in action
 
 ## How to use Wax
 
-Facets is a [Wax](https://minicomp.github.io/wax/) theme. Wax in turn relies on Jekyll. To use Facets you need to be familiar with both Jekyll and Wax. To learn more about setting up and using Wax visit [the Wax wiki](https://minicomp.github.io/wiki/wax/). You can learn more about using Jekyll on the [Jekyll docs](https://jekyllrb.com/docs/), or in [this great tutorial](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages) by Amanda Visconti at Programming Historian.
+Facets is a [Wax](https://UoG-Library-Digital-Collections.github.io/wax/) theme. Wax in turn relies on Jekyll. To use Facets you need to be familiar with both Jekyll and Wax. To learn more about setting up and using Wax visit [the Wax wiki](https://UoG-Library-Digital-Collections.github.io/wiki/wax/). You can learn more about using Jekyll on the [Jekyll docs](https://jekyllrb.com/docs/), or in [this great tutorial](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages) by Amanda Visconti at Programming Historian.
 
 ## How to define facets
 
 As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have designated columns for each large category you want to "facet" by. These become the *facet headers* at the top of the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These become the check boxes.
 
 <br>
-<img src="https://minicomp.github.io/wax-facets/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
+<img src="https://UoG-Library-Digital-Collections.github.io/wax-facets/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
 <br>
 <br>
 

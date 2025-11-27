@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    if: github.repository_owner == 'minicomp'
+    if: github.repository_owner == 'UoG-Library-Digital-Collections'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

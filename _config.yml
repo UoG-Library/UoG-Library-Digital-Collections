@@ -21,7 +21,7 @@ baseurl: "/UoG-Library-Digital-Collections"
 collections:
    exhibits:
     output: true
-   minicomp: # name of collection
+   UoG-Library-Digital-Collections: # name of collection
     output: true # makes sure pages are output as html files
    layout: "UoG-Library-Digital-Collections_item" # the layout for the pages to use
    metadata:
@@ -46,7 +46,7 @@ search:
   main:
     index: "/search/index.json" # file the index will get written to
     collections:
-      minicomp:
+      UoG-Library-Digital-Collections:
         content: true # whether or not to index page content
         fields: # the metadata fields to index
           - location
