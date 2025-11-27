@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang='en-us'>
-  {% include head.html %}
-
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+ 
+     {%- include head.html -%}
   <body>
-    <time datetime='{{ 'now' | date: '%Y-%m-%d %H:%M' }}'></time>
-    {% include header.html %}
-
-    {% if page.banner %}
-      {% assign b = page.banner %}
-      {% include parallax_image.html collection=b.collection pid=b.pid y=b.y height=b.height image=b.image clickable=b.clickable %}
-    {% endif %}
-
-    <div id='wax-main'>
-      <div id='wax-content' class='wax-inline-container'>
+        {%- include header.html -%}
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
         {{ content }}
+          </div>
+        </div>
       </div>
-    </div>
-
-    {% include footer.html %}
-    <script type='text/javascript' async defer src='{{ "/assets/bootstrap/bootstrap.min.js" | absolute_url }}'></script>
-    <script type='text/javascript' async defer src='{{ "/assets/popper.min.js" | absolute_url }}'></script>
+    </main>
+    {%- include footer.html -%}
   </body>
 </html>
