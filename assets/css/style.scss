@@ -1,0 +1,61 @@
+---
+sitemap: false
+---
+
+/* open-sans-300 - latin */
+@font-face {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 300;
+  src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.eot" | absolute_url }}'); /* IE9 Compat Modes */
+  src: local(""),
+    url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff2" | absolute_url }}')
+      format("woff2"),
+    /* Super Modern Browsers */
+      url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-300.woff" | absolute_url }}')
+      format("woff");
+}
+
+/* open-sans-regular - latin */
+@font-face {
+  font-family: "Open Sans Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.eot" | absolute_url }}');
+  src: local(""),
+    url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff2" | absolute_url }}')
+      format("woff2"),
+    /* Super Modern Browsers */
+      url('{{ "/assets/fonts/OpenSans/open-sans-v18-latin-regular.woff" | absolute_url }}')
+      format("woff");
+}
+
+/* text */
+
+$body-font: "Open Sans Regular", "Verdana", "sans-serif";
+$heading-font: "Open Sans Light", "Verdana", "sans-serif";
+
+/* Colors */
+
+$light-text: #d35400 ;
+$light-link: rgb(255, 255, 255);
+$light-link-hover: #d35400;
+$dark-background: #034728;
+$medium-background: #034728;
+$light-background: #f70e0e;
+$dark-text: #030222;
+$code: #f71818;
+$muted-text: #e137e7;
+
+/* Image Heights */
+
+$parallax-height: 500px;
+
+/* Viewer proportions */
+
+$viewer-height: 100%;
+$max-width: 100%;
+
+@import "facets";
+
+    

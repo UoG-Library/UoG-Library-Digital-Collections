@@ -1,131 +1,44 @@
-# minicomp/wax 🐝
+# Facets
 
-[![Gem Version](https://badge.fury.io/rb/wax_theme.svg)](https://badge.fury.io/rb/wax_theme)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![CI:Test](https://github.com/minicomp/wax/workflows/ci:test/badge.svg)](https://github.com/minicomp/wax/actions?query=workflow%3Aci%3Atest)
-[![Depfu](https://badges.depfu.com/badges/9d4da973f2cd2680c11ca34738c2dfb2/overview.svg)](https://depfu.com/github/minicomp/wax?project_id=10550)
-[![Gem Downloads](https://img.shields.io/gem/dt/wax_theme.svg?color=046d0b)](https://badge.fury.io/rb/wax_theme)
-[![Join the chat the minicomp-wax channel of the Code4Lib Slack](https://img.shields.io/badge/Slack-%23minicomp--wax-brightgreen.svg)](https://docs.google.com/forms/d/e/1FAIpQLSeD77mBp0Y13mFePF8UmDwFrlbxNx3VttEjz_3dgglJeK-Zbg/viewform?c=0&w=1)
-![License](https://img.shields.io/github/license/minicomp/wax_tasks.svg?color=c6a1e0)
+*Facets* is a theme for [Wax sites](https://minicomp.github.io\/wax/) that allows users to browse through a collection using facets, or filters. When we are browsing through a collection of cultural artifacts, we often want to reduce the number of objects in front of us to a small collection that fits a very specific criteria. Faceted browsing is a form of browsing that allows you to do just that using filters you select. In Facets this can be achieved using drop-down menus where you can select the categories you want to browse by.
 
+Visit [the demo site](https://minicomp.github.io/wax-facets/) to see *Facets* in action
 
+## How to use Wax
 
+Facets is a [Wax](https://minicomp.github.io/wax/) theme. Wax in turn relies on Jekyll. To use Facets you need to be familiar with both Jekyll and Wax. To learn more about setting up and using Wax visit [the Wax wiki](https://minicomp.github.io/wiki/wax/). You can learn more about using Jekyll on the [Jekyll docs](https://jekyllrb.com/docs/), or in [this great tutorial](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages) by Amanda Visconti at Programming Historian.
 
+## How to define facets
 
-__Wax is an extensible workflow for producing scholarly exhibitions with minimal computing principles.__<br>
-It's comprised of: __a few Ruby gems__ for processing image data and associated metadata ([wax_tasks](https://github.com/minicomp/wax_tasks/), [wax_iiif](https://github.com/minicomp/wax_iiif/)), __a Jekyll theme__ ([wax_theme](https://github.com/minicomp/wax/)), and (hopefully soon!) a lot of __documentation and recipes__ for creating, deploying, and maintaining digital exhibitions. For now, additional documentation is in the [Minicomp/Wax Wiki](https://minicomp.github.io/wiki/wax/).
-
-
-- [Prerequisites](#Prerequisites)
-- [Getting Started](#Getting-Started)
-- [Using Docker](#Using-Docker)
-- [Contributing](#Contributing)
+As other Wax sites, *Facets* depends on the metadata you create. Let's assume you are using a CSV to record data for your collection. In order for *Facets* to work, that CSV must have designated columns for each large category you want to "facet" by. These become the *facet headers* at the top of the drop-down menus above the gallery. Each of these columns then accepts a small range of sub-categories, or *facet values*. These become the check boxes.
 
 <br>
-
-<a href="https://minicomp.github.io/wax/">
-  <img src="https://raw.githubusercontent.com/minicomp/wiki/main/src/assets/wax_screen.gif?raw=true"/>
-</a>
-
+<img src="https://minicomp.github.io/wax-facets/assets/figures/fig1.png" height="100%" width="100%" alt="Figure 1. Illustration of Facet Headers and Facet Values"/>
+<br>
 <br>
 
-# Prerequisites
+We tell *Facets* what collection gallery to insert and what columns to facet by with a Jekyll `include` command that brings in the `collection_gallery` at the desired place on the page. This `include` snippet requires a `collection` variable, but can  take three other optional variables to help you refine the results further: `only`, `facet_by`, and `num_column`. This theme already comes with the following example in the [Browse](/collection/) page. In order to use it, just replace the sample values with your own when editing the page:
 
+<code>{% raw %}
+  {% include collection_gallery.html collection='qatar'
+      facet_by='object_type|location' num_column=4 %}
+{% endraw %}</code>
 
-You'll need `git` and `ruby >= 3.2` with `bundler` installed.
-These dependencies can either be installed natively on your system or within a [Docker environment](#Using-Docker). For instructions, check the Wiki's [Setting up your system page](https://minicomp.github.io/wiki/wax/setting-up-your-system/).
+For the `facet_by` variable, specify one or more field names in a pipe-separated list. 
 
-Check your versions with:
+For the `num_column` variable, specify a number that is a divisor of 12 (i.e, 1, 2, 3, 4, or 6). This is the number of columns you want to have. The default is 2 columns.
 
-```sh
-ruby -v
-```
+## How to create a subset gallery  
 
-``` sh
-bundler -v
-```
+If you pass the `only` variable to the include instruction, the collection will be filtered to only items that have [a truthy value](https://shopify.github.io/liquid/filters/where/) for that field name. Consider the example we use in 'Exhibit with Subset Collection':
 
-To process images, you will also need to have ImageMagick and Ghostscript installed and functional. You can check to see if you have ImageMagick by running:
+<code>{% raw %}{% include collection_gallery.html collection='qatar' facet_by='object_type' only='portrait' num_column=4 %}{% endraw %}</code>
 
-```sh
-convert -version
-```
+The gallery that results from this instruction, which you can see in our "[Exhibit with Subset Collection](/exhibits/subset/)," only shows portraits. Notice also that this gallery view does not have a faceting menu.
 
-... and check Ghostscript with:
-``` sh
-gs -version
-```
+## How to change our design
 
-Vips will soon replace ImageMagick for Wax's image processing. If you're ahead of the curve, you can check your version with
+*Facets* is a prototype, just as *Wax* itself is a prototype, a tool to think with that is also immediately practical. Both of these are built on Jekyll, which allows you an enormous amount of flexibility for changing the design of your site. Feel free to play around with the code that makes our exhibit pages and our galleries tick. The more you transform our work, the more we will feel like we succeeded.
 
-``` sh
-vips -v
-```
+The CSS that determines the look of the site is done using a combination of SASS and the bootstrap framework. To change some common variables, like colors or fonts, you can edit the `/assets/css/style.scss` file. You can always override our own choices from this file as well. You can also add your own CSS files to the `_sass` folder, and simply import them into the main sass file above.
 
-# Getting Started
-
-__There are a few ways to get started with Wax, depending on your needs.__ Copyin the demo template is suggested for new users so you can see how a full Wax site would work. __Advanced Jekyllers__ can start from a clean Jekyll install. To start with the demo:
-
-1. Log into your [GitHub account](https://github.com/). (Or sign up if you don't have one!)
-
-2. Head to the [Wax demo page](https://github.com/minicomp/wax) and click **"Use this template"** button. You will be prompted to create a copy of the repository in your own account. The name you choose will inform your free URL (repository) for the project with GitHub, so name it after the collection or exhibition you'll make. In this example, the repository is called **"my-wax-site"**.
-
-3. On your new Wax repository page, click the Green **"Code"** button and copy the URL it provides to your clipboard, e.g,
-  ```sh
-  git@github.com:username/my-wax-site.git
-  ```
-
-4. Open your Terminal/Shell application and change directory into where you want to work on your project, e.g., your Desktop:
-  ```sh
-  cd ~/Desktop
-  ```
-
-5. Run the `git clone` command plus the link you copied on your clipboard in one line, e.g.,
-  ```sh
-  git clone git@github.com:username/my-wax-site.git
-  ```
-
-6. When the clone is complete, change directory into your newly cloned project folder, in this case:
-  ```sh
-  cd my-wax-site
-  ```
-
-7. Install the project-specific Ruby dependencies by running the command:
-  ```sh
-  bundle install
-  ```
-
-8. Run the demo site by running the command:
-  ```sh
-  bundle exec jekyll serve
-  ```
-
-After the last step, the terminal provides you with a localhost URL for you to see a local copy of the site on your web browser. This is the template site you will make changes to in order to make your own exhibition. For more details, check out the [Minicomp/Wax Wiki](https://minicomp.github.io/wiki/wax/).
-
-
-# Using Docker
-
-To use Wax in a container, make sure you are familiar with Docker and have [Docker installed](https://docs.docker.com/get-docker/).
-
-Run the "Getting Started" steps 1-6 above to copy and `cd` into the repo.  
-
-Next, build the `minicomp/wax` base image:
-```
-docker build -t minicomp/wax .
-```
-
-You will run all of the Wax tasks and commands within an interactive bash container, which you can create and access by running:
-```
-docker run -it --rm -v "$PWD":/wax --name wax -p 4000:4000 minicomp/wax bash
-```
-
-To serve the site, you can run the following command in the guest container and view it in your host browser:
-```
-bundle exec jekyll serve --host 0.0.0.0
-```
-
-You can exit the container at any time with `$ exit`, which will automatically stop and remove the container.
-
-# Contributing
-
-We welcome contributions to Wax, including bug reports and feature requests (submitted as [Issues](https://github.com/minicomp/wax/issues)), code contributions (submitted as [Pull Requests](https://github.com/minicomp/wax/pulls)), and documentation updates (submitted however!) Not sure where to start? Feel free to get in touch via [GitHub issue](https://github.com/minicomp/wax/issues) or grab an invite to join the conversation on the `#minicomp-wax` channel of the [Code4Lib Slack](https://docs.google.com/forms/d/e/1FAIpQLSeD77mBp0Y13mFePF8UmDwFrlbxNx3VttEjz_3dgglJeK-Zbg/viewform?c=0&w=1).
