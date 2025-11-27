@@ -7,4 +7,4 @@ publish_date: 2024/06/24
 permalink: /who/
 --- 
 
-{% include gallery.html collection='UoG-Library-Digital-Collectionsp' field='location' value='CRL' facet_by='label' num_column=4 %}
+{% include gallery.html collection='UoG-Library-Digital-Collections' field='location' value='CRL' facet_by='label' num_column=4 %}
